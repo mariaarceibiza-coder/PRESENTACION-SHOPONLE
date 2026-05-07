@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envíos y devoluciones · Charo Ruiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #2c2c2c;
+  --ink-mute: #6e6e6e;
+  --line: #e5e5e5;
+  --line-soft: #f0f0f0;
+  --accent: #1a1a1a;
+  --bg-soft: #faf9f7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TOP PROMO BAR */
+.promo-bar {
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.promo-bar .icon { display: inline-block; margin-right: 6px; opacity: 0.8; }
+.promo-close {
+  position: absolute;
+  right: 18px; top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0.8;
+}
+
+/* HEADER */
+.header {
+  border-bottom: 1px solid var(--line-soft);
+  padding: 24px 60px 18px;
+  position: relative;
+}
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.header-locale {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  font-weight: 400;
+}
+.header-locale span::after { content: ' ⌄'; color: var(--ink-mute); margin-left: 4px; }
+.brand-logo {
+  text-align: center;
+}
+.brand-logo .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 34px;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  line-height: 1;
+}
+.brand-logo .tagline {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.header-actions {
+  text-align: right;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  font-weight: 400;
+}
+.header-actions span { padding: 0 10px; }
+.header-actions span:first-child { padding-left: 0; }
+.header-actions .cart-count {
+  display: inline-block;
+  background: #d44;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px; height: 18px;
+  font-size: 10px;
+  text-align: center;
+  line-height: 18px;
+  margin-left: 4px;
+  font-weight: 500;
+  vertical-align: top;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  padding-top: 4px;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.nav a::after { content: ' ⌄'; color: var(--ink-mute); margin-left: 3px; font-size: 10px; }
+
+/* PAGE */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 40px 90px;
+}
+.page-title {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 52px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 36px;
+  line-height: 1.15;
+}
+.breadcrumb {
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-mute);
+  margin-bottom: 70px;
+  letter-spacing: 0.04em;
+}
+.breadcrumb .arrow { margin-right: 8px; opacity: 0.5; }
+
+/* CONTENT */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.content section { margin-bottom: 56px; }
+.content section:last-child { margin-bottom: 0; }
+
+.section-title {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.content p {
+  margin-bottom: 18px;
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.75;
+  font-size: 15.5px;
+}
+.content p:last-child { margin-bottom: 0; }
+
+.content p strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.content em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1em;
+  color: var(--ink);
+}
+
+/* List with no bullets but elegant indentation */
+.content ul.elegant {
+  list-style: none;
+  margin: 18px 0 22px 0;
+  padding-left: 0;
+}
+.content ul.elegant li {
+  position: relative;
+  padding: 6px 0 6px 28px;
+  color: var(--ink-soft);
+  font-weight: 300;
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+.content ul.elegant li::before {
+  content: '·';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  color: var(--ink-mute);
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Subtle separator */
+.divider {
+  text-align: center;
+  margin: 64px 0;
+  color: var(--ink-mute);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.5em;
+}
+.divider::before, .divider::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--line);
+  vertical-align: middle;
+  margin: 0 14px;
+}
+
+/* Quiet note (intro paragraph) */
+.intro-note {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+/* Quiet box for important info, no shouting */
+.quiet-box {
+  background: var(--bg-soft);
+  padding: 28px 32px;
+  margin: 28px 0;
+  border-left: 1px solid var(--ink);
+}
+.quiet-box p { margin-bottom: 12px; font-size: 15px; }
+.quiet-box p:last-child { margin-bottom: 0; }
+.quiet-box .quiet-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-mute);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Sub-section title (smaller, italic) */
+.subsection-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ink);
+  margin: 28px 0 14px;
+  letter-spacing: 0.01em;
+}
+
+/* Contact footer of the page */
+.contact-block {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 50px;
+  border-top: 1px solid var(--line);
+}
+.contact-block .label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+}
+.contact-block .email {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.contact-block .email:hover { text-decoration: underline; }
+
+/* FOOTER */
+.site-footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 60px 60px 30px;
+  margin-top: 80px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* Floating discount badge (like in the screenshot) */
+.floating-badge {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 76px;
+  height: 76px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .header { padding: 20px 24px 14px; }
+  .nav { flex-wrap: wrap; gap: 18px; }
+  .header-top { grid-template-columns: 1fr; gap: 14px; }
+  .header-locale, .header-actions { text-align: center; justify-content: center; display: flex; }
+  .header-actions { justify-content: center; }
+  .page { padding: 50px 24px 70px; }
+  .content { padding: 0; }
+  .quiet-box { padding: 22px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  <span class="icon">▤</span> Hasta 12 cuotas con PayPal | Envío gratuito a partir de €300
+  <button class="promo-close">×</button>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="header-locale">
+      <span>Español</span>
+      <span>España (EUR €)</span>
+    </div>
+    <div class="brand-logo">
+      <div class="name">CHARO</div>
+      <div class="tagline">IBIZA 1989</div>
+    </div>
+    <div class="header-actions">
+      <span>BUSCAR</span> | <span>INGRESAR</span> | <span>CESTA<span class="cart-count">2</span></span>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="#">Nuevo</a>
+    <a href="#">Colecciones</a>
+    <a href="#">Todo</a>
+    <a href="#">Rebajas</a>
+    <a href="#">Especial para</a>
+    <a href="#">Charo</a>
+  </nav>
+</header>
+
+<!-- PAGE -->
+<main class="page">
+
+  <h1 class="page-title">ENVÍOS Y DEVOLUCIONES</h1>
+  <div class="breadcrumb"><span class="arrow">›</span> Envíos y devoluciones</div>
+
+  <div class="content">
+
+    <p class="intro-note">
+      Cada pieza Charo Ruiz se confecciona a mano y llega a ti en su estado más cuidado. Para que esa experiencia sea siempre la misma, hemos pensado nuestro proceso de envíos y devoluciones con la misma delicadeza con la que cuidamos cada prenda.
+    </p>
+
+    <!-- ENVÍO -->
+    <section>
+      <h2 class="section-title">ENVÍO</h2>
+
+      <p><strong>Envíos nacionales:</strong> una vez confirmado el stock los envíos se realizan por mensajería con un plazo aproximado de entrega desde 3/5 días laborables según el tipo de envío elegido y el destino peninsular o insular. Envío gratuito en pedidos superiores a 300€.</p>
+
+      <p><strong>Envíos internacionales:</strong> una vez confirmado el stock los envíos se realizan por mensajería con un plazo aproximado de entrega desde 3/5 días laborables según el tipo de envío elegido y el destino. Puedes hacer tus pedidos desde cualquier lugar del mundo a excepción de Rusia. El tiempo de entrega y los gastos de envío dependen del destino de entrega, siendo gratuito para pedidos superiores a 300 €. En el momento de confirmar la compra se indicarán los gastos correspondientes.</p>
+
+      <p>Los países fuera de la Unión Europea están sujetos al pago de tasas que podrán estar o no incluidas en el precio final. Una vez elegido el destino final de un envío, se indicará si están incluidas o no las tasas, total o parcialmente o podrás elegir si pagarlas en ese mismo momento o más tarde cuando el pedido llegue a las aduanas de su destino final.</p>
+    </section>
+
+    <div class="divider">·</div>
+
+    <!-- DEVOLUCIÓN -->
+    <section>
+      <h2 class="section-title">DEVOLUCIÓN</h2>
+
+      <p>Si una de nuestras prendas no es para ti, puedes devolverla. Te pedimos un poco de cuidado para que esa misma prenda pueda llegar a otra clienta en perfectas condiciones.</p>
+
+      <h3 class="subsection-title">Plazo</h3>
+
+      <p>Dispones de <strong>14 días naturales desde la recepción del pedido</strong> para comunicarnos tu decisión de devolución, escribiéndonos a <strong>shoponline@charoruiz.com</strong> con tu número de pedido. Una vez recibida tu solicitud, te confirmaremos los siguientes pasos. A partir de ese momento, dispondrás de otros 14 días naturales para hacernos llegar la prenda.</p>
+
+      <h3 class="subsection-title">Cuidado de la prenda</h3>
+
+      <p>Para que podamos aceptar la devolución, la prenda debe regresar en el mismo estado en el que salió de nuestro atelier:</p>
+
+      <ul class="elegant">
+        <li>Sin haber sido usada ni lavada.</li>
+        <li>Con todas sus etiquetas originales en su sitio, incluida la etiqueta de seguridad colocada en la prenda.</li>
+        <li>Dentro de su envoltorio original.</li>
+        <li>Sin olores ajenos al producto, como perfume, cosméticos o tabaco.</li>
+        <li>Sin manchas ni signos de uso.</li>
+      </ul>
+
+      <p>Te pedimos especial atención con la <em>etiqueta de seguridad</em>: forma parte de nuestro proceso de cuidado de cada pieza, y su retirada o manipulación impide que podamos aceptar la devolución.</p>
+
+      <h3 class="subsection-title">Componentes</h3>
+
+      <p>Cuando una prenda incluye accesorios, como cinturón, bolsa para el cinturón, broches o cualquier complemento, te pedimos que los devuelvas con ella. Si alguno faltase, podremos aceptar la devolución, pero el reembolso se ajustará al valor del componente que no haya regresado con la prenda.</p>
+
+      <h3 class="subsection-title">Reembolso</h3>
+
+      <p>Una vez recibida la prenda en nuestro centro logístico y confirmado que cumple las condiciones anteriores, procederemos al reembolso por el mismo medio de pago que utilizaste en la compra, en un plazo máximo de 14 días naturales.</p>
+
+      <h3 class="subsection-title">Gastos de envío</h3>
+
+      <p>En las devoluciones por desistimiento, los gastos del envío de devolución corren a cargo del cliente. Si la devolución se debe a un defecto de fabricación o a un error por nuestra parte, los gastos los asumimos nosotros con mucho gusto.</p>
+
+      <h3 class="subsection-title">Cambios de talla, color o modelo</h3>
+
+      <p>Si lo que necesitas es un cambio de talla, color o modelo, nos lo dices en el mismo correo y te ayudamos. Los gastos de envío de los cambios corren a cargo del cliente.</p>
+    </section>
+
+    <div class="divider">·</div>
+
+    <!-- ALTA GAMA -->
+    <section>
+      <h2 class="section-title">PIEZAS DE ALTA GAMA</h2>
+
+      <p>Para los artículos cuyo precio supera los 500 €, te pedimos que la devolución se realice mediante un servicio de transporte con seguimiento y valor declarado equivalente al precio de la prenda. Es la mejor forma de proteger la pieza durante el trayecto.</p>
+
+      <p>Estas devoluciones requieren una inspección detallada en nuestro centro logístico que puede llevar entre 2 y 5 días laborables, antes de tramitar el reembolso correspondiente.</p>
+    </section>
+
+    <div class="divider">·</div>
+
+    <!-- INTERNACIONAL EXTRACOMUNITARIO -->
+    <section>
+      <h2 class="section-title">PEDIDOS FUERA DE LA UNIÓN EUROPEA</h2>
+
+      <p>Para clientes fuera de la Unión Europea, el plazo para enviarnos la devolución es de <strong>14 días naturales desde la recepción del pedido</strong>. La devolución debe realizarse mediante un servicio de transporte internacional con seguimiento y valor declarado.</p>
+
+      <p>Los gastos del envío de devolución, así como los aranceles, tasas aduaneras o cualquier impuesto de importación correspondiente al envío original, no son reembolsables. Te pedimos que indiques siempre en el envío la mención <em>«returned goods»</em> en la documentación aduanera, para que el paquete pueda llegar sin retención a nuestro centro logístico.</p>
+    </section>
+
+    <div class="divider">·</div>
+
+    <!-- ARTÍCULOS NO SUSCEPTIBLES -->
+    <section>
+      <h2 class="section-title">ARTÍCULOS NO SUSCEPTIBLES DE DEVOLUCIÓN</h2>
+
+      <p>Por razones de higiene o de personalización, no podemos aceptar la devolución de los siguientes artículos:</p>
+
+      <ul class="elegant">
+        <li>Bañadores, lencería y pendientes una vez retirado su precinto original.</li>
+        <li>Prendas confeccionadas a medida o con personalización específica.</li>
+      </ul>
+    </section>
+
+    <div class="divider">·</div>
+
+    <!-- DEVOLUCIONES NO ACEPTADAS -->
+    <section>
+      <h2 class="section-title">SI LA DEVOLUCIÓN NO PUEDE SER ACEPTADA</h2>
+
+      <p>Cuando una prenda llega a nuestro centro logístico y, tras la inspección, no cumple alguna de las condiciones anteriores, nos pondremos en contacto contigo para explicártelo, acompañándolo de la documentación correspondiente.</p>
+
+      <p>La prenda continúa siendo de tu propiedad. Si deseas que te la enviemos de vuelta, podemos hacerlo de dos maneras: que tú organices la recogida en nuestro centro logístico con el transportista que prefieras, o que nos encarguemos nosotros del envío previo pago de los portes correspondientes. En ambos casos, los gastos de envío corren a tu cargo.</p>
+
+      <div class="quiet-box">
+        <span class="quiet-label">— Para tener en cuenta</span>
+        <p>Dispondrás de 15 días naturales desde nuestro aviso para indicarnos cómo prefieres proceder. Si en ese plazo no tenemos noticias tuyas, no podremos garantizar la conservación de la prenda.</p>
+      </div>
+    </section>
+
+    <div class="divider">·</div>
+
+    <!-- CUIDADO Y CONFIANZA -->
+    <section>
+      <h2 class="section-title">NUESTRO PROCESO DE CUIDADO</h2>
+
+      <p>En nuestro centro logístico de Badalona, cada prenda pasa por un proceso de control individual antes de salir hacia ti, registrado mediante nuestro sistema de videovigilancia conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD). Lo mismo ocurre cuando una devolución llega de vuelta a nosotros.</p>
+
+      <p>Es nuestra forma de garantizar que cada pieza Charo Ruiz que llega a una clienta se entrega con la misma atención con la que se ha confeccionado.</p>
+    </section>
+
+    <!-- CONTACT FOOTER -->
+    <div class="contact-block">
+      <div class="label">¿Tienes alguna duda?</div>
+      <a href="mailto:shoponline@charoruiz.com" class="email">shoponline@charoruiz.com</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- SITE FOOTER (placeholder) -->
+<footer class="site-footer">
+  CHARO RUIZ EXPORT S.L. · Ibiza · Madrid · Marbella<br>
+  © 1989 — 2026
+</footer>
+
+<!-- FLOATING BADGE -->
+<div class="floating-badge">10% DTO.</div>
+
+</body>
+</html>
